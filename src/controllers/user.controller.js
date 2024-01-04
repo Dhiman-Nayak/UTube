@@ -4,6 +4,7 @@ import  User  from "../models/user.models.js";
 import { uploadCloudinary } from "../utils/cloudinary.js";
 import { ApiResponse } from "../utils/apiResponse.js";
 
+
 const registerUser = asyncHandler(async (req, res) => {
     const { userName, fullName, email, password } = req.body;
 
@@ -73,4 +74,10 @@ const registerUser = asyncHandler(async (req, res) => {
 
 });
 
-export { registerUser };
+const login=asyncHandler(async (req,res)=>{
+    const {email,password}=req.body;
+    const existingEmail =await User.findOne({ email });
+    return res.status(200).json({massage:"successfullt logged in"})
+
+})
+export { registerUser ,login};
