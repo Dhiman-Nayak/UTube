@@ -31,10 +31,10 @@ router.route("/register").post(
 router.route("/login").post(login);
 router.route("/logout").post(verifyJWT, logout);
 router.route("/refresh-token").post(refreshAccessTokene);
-router.route("/change-password").post(changeCurrentPassword);
-router.route("/users").post(getCurrentUser);
-router.route("/update-account").post(updateAccountDetails);
-router.route("/update-avatar").post(updateUserAvatar);
-router.route("/update-coverimage").post(updateUserCoverImage);
+router.route("/change-password").post(verifyJWT,changeCurrentPassword);
+router.route("/users").post(verifyJWT,getCurrentUser);
+router.route("/update-account").post(verifyJWT,updateAccountDetails);
+router.route("/update-avatar").post(verifyJWT,updateUserAvatar);
+router.route("/update-coverimage").post(verifyJWT,updateUserCoverImage);
 
 export default router;
