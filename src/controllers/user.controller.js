@@ -172,7 +172,7 @@ const logout = asyncHandler(async (req, res) => {
         .json(new ApiResponse(200, {}, "User successfully logged out"));
 });
 
-const refreshAccessTokene = asyncHandler(async (req, res) => {
+const refreshAccessToken = asyncHandler(async (req, res) => {
     const incomingRefreshToken = req.cookie.refreshToken;
     if (!incomingRefreshToken) {
         throw new ApiError(401, "unauthorised token");
@@ -455,7 +455,7 @@ export {
     registerUser,
     login,
     logout,
-    refreshAccessTokene,
+    refreshAccessToken,
     changeCurrentPassword,
     getCurrentUser,
     updateAccountDetails,
